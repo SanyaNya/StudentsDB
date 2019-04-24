@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TABLE_H
+#define TABLE_H
 
 #define EMPTY_CELL { {1, 1}, NoRemoveBorders, {LeftAlignment, 0,0,0,0}, "" }
 #define DEFAULT_CELL(WIDTH, HEIGHT, TEXT) { {WIDTH, HEIGHT}, NoRemoveBorders,{ CenterAlignment, 0,0,0,0 }, TEXT }
@@ -91,9 +92,11 @@ struct TableString
 };
 
 
-//Возвращает таблицу в виде строки
-//Под TableString.tableString выделяется память
+//Г‚Г®Г§ГўГ°Г Г№Г ГҐГІ ГІГ ГЎГ«ГЁГ¶Гі Гў ГўГЁГ¤ГҐ Г±ГІГ°Г®ГЄГЁ
+//ГЏГ®Г¤ TableString.tableString ГўГ»Г¤ГҐГ«ГїГҐГІГ±Гї ГЇГ Г¬ГїГІГј
 struct TableString TableToString(struct Table* table_ptr);
 
-//Записывает ячейку по определенным координатам и расставляет пустые ячейки, если это мультиячейка
+//Г‡Г ГЇГЁГ±Г»ГўГ ГҐГІ ГїГ·ГҐГ©ГЄГі ГЇГ® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г­Г»Г¬ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ Г¬ ГЁ Г°Г Г±Г±ГІГ ГўГ«ГїГҐГІ ГЇГіГ±ГІГ»ГҐ ГїГ·ГҐГ©ГЄГЁ, ГҐГ±Г«ГЁ ГЅГІГ® Г¬ГіГ«ГјГІГЁГїГ·ГҐГ©ГЄГ 
 void SetCell(struct Table* table_ptr, size_t x, size_t y, struct Cell cell);
+
+#endif
