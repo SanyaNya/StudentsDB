@@ -1,4 +1,5 @@
-#pragma once
+#ifndef STUDENTS_DB_CONSOLE_COMMANDS_H
+#define STUDENTS_DB_CONSOLE_COMMANDS_H
 
 #define STUDENTSDB_BASE_COMMANDS_COUNT 3
 #define STUDENTSDB_MAIN_COMMANDS_COUNT 15
@@ -26,3 +27,5 @@ void Command_CreateDB(void* args);
 void Command_OpenDB(void* args);
 void Command_CloseDB(void* args);
 void Command_CheckDB(void* args);
+
+#endif
