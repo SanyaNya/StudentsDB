@@ -1,4 +1,5 @@
-#pragma once
+#ifndef STUDENTS_DB_H
+#define STUDENTS_DB_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,28 +22,30 @@ extern struct StudySubjects studySubjects;
 
 extern int dbIsOpen;
 
-//Список учебный предметов
+//Г‘ГЇГЁГ±Г®ГЄ ГіГ·ГҐГЎГ­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў
 struct StudySubjects
 {
-	uint32_t count; //Количество учебных предметов
+	uint32_t count; //ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ·ГҐГЎГ­Г»Гµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў
 
-	char** names;   //Массив названий учебных предметов
+	char** names;   //ГЊГ Г±Г±ГЁГў Г­Г Г§ГўГ Г­ГЁГ© ГіГ·ГҐГЎГ­Г»Гµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў
 };
 
-//Информация о студенте
+//Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® Г±ГІГіГ¤ГҐГ­ГІГҐ
 struct StudentInfo
 {
-	char* firstName;  //Имя
-	char* secondName; //Фамилия
-	char* lastName;   //Отчество
+	char* firstName;  //Г€Г¬Гї
+	char* secondName; //Г”Г Г¬ГЁГ«ГЁГї
+	char* lastName;   //ГЋГІГ·ГҐГ±ГІГўГ®
 
-	char* group; //Название группы
+	char* group; //ГЌГ Г§ГўГ Г­ГЁГҐ ГЈГ°ГіГЇГЇГ»
 
-	uint8_t* studySubjectRatings; //Массив оценок, длиною в количество учебных предметов
+	uint8_t* studySubjectRatings; //ГЊГ Г±Г±ГЁГў Г®Г¶ГҐГ­Г®ГЄ, Г¤Г«ГЁГ­Г®Гѕ Гў ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ·ГҐГЎГ­Г»Гµ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў
 };
 
-void Read_StudySubjects(FILE* stream, uint32_t size, va_list args);  //Функция, считывающая из потока структуру StudySubjects, для передачи в DB_Read
-void Write_StudySubjects(FILE* stream, uint32_t size, va_list args); //Функция, записывающая в поток структуру StudySubjects, для передачи в DB_Add или DB_Set
+void Read_StudySubjects(FILE* stream, uint32_t size, va_list args);  //Г”ГіГ­ГЄГ¶ГЁГї, Г±Г·ГЁГІГ»ГўГ ГѕГ№Г Гї ГЁГ§ ГЇГ®ГІГ®ГЄГ  Г±ГІГ°ГіГЄГІГіГ°Гі StudySubjects, Г¤Г«Гї ГЇГҐГ°ГҐГ¤Г Г·ГЁ Гў DB_Read
+void Write_StudySubjects(FILE* stream, uint32_t size, va_list args); //Г”ГіГ­ГЄГ¶ГЁГї, Г§Г ГЇГЁГ±Г»ГўГ ГѕГ№Г Гї Гў ГЇГ®ГІГ®ГЄ Г±ГІГ°ГіГЄГІГіГ°Гі StudySubjects, Г¤Г«Гї ГЇГҐГ°ГҐГ¤Г Г·ГЁ Гў DB_Add ГЁГ«ГЁ DB_Set
 
-void Read_StudentInfo(FILE* stream, uint32_t size, va_list args);  //Функция, считывающая из потока структуру StudentInfo, для передачи в DB_Read
-void Write_StudentInfo(FILE* stream, uint32_t size, va_list args); //Функция, записывающая в поток структуру StudentInfo, для передачи в DB_Add или DB_Set
+void Read_StudentInfo(FILE* stream, uint32_t size, va_list args);  //Г”ГіГ­ГЄГ¶ГЁГї, Г±Г·ГЁГІГ»ГўГ ГѕГ№Г Гї ГЁГ§ ГЇГ®ГІГ®ГЄГ  Г±ГІГ°ГіГЄГІГіГ°Гі StudentInfo, Г¤Г«Гї ГЇГҐГ°ГҐГ¤Г Г·ГЁ Гў DB_Read
+void Write_StudentInfo(FILE* stream, uint32_t size, va_list args); //Г”ГіГ­ГЄГ¶ГЁГї, Г§Г ГЇГЁГ±Г»ГўГ ГѕГ№Г Гї Гў ГЇГ®ГІГ®ГЄ Г±ГІГ°ГіГЄГІГіГ°Гі StudentInfo, Г¤Г«Гї ГЇГҐГ°ГҐГ¤Г Г·ГЁ Гў DB_Add ГЁГ«ГЁ DB_Set
+
+#endif
